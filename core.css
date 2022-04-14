@@ -1,0 +1,174 @@
+.main-frame{
+    width: 95vw;
+    /* height: 95vh; */
+}
+
+/*
+The loaders use CSS custom properties (variables) to control the attributes of the loaders
+*/
+:root{
+	--loader-width: 70px;
+	--loader-height: 70px;
+	--loader-color-primary: #27ae60;
+	--loader-color-secondary: #eee;
+	--line-width: 3px;
+	--animation-duration: 2s;
+	--loader-initial-scale: 0.1;
+}
+.main-frame.loader,.loader:before,.loader:after{
+	box-sizing: border-box;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+/*
+In order to get optimal results, please only change the 
+variables above and don't change anything in the actual loader code
+*/
+	
+	
+
+@keyframes circle-loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.main-frame.loader.simple-circle {
+    position: relative;
+    top: 49vh;
+    left: 49vw;
+    transform-origin: center center;
+    border: var(--line-width, 4px) solid var(--loader-color-secondary, #fff);
+    border-right-color: var(--loader-color-primary, #00f);
+    width: var(--loader-width, 100px);
+    height: var(--loader-height, 100px);
+    border-radius: 50%;
+    animation: circle-loader var(--animation-duration, 1s) infinite ease-out;
+}
+.row {
+    display:table-row;
+    border-spacing: 0 10px;
+    width: 100%;   
+    align-items: stretch;
+}
+.row:nth-child(2n) {
+    background-color:#FFFFFF;
+}
+.row:nth-child(2n+1) {
+    background-color:#E9E9E9;
+}
+.row.summary{
+    background-color: #FFEB96;
+    font-weight: bolder;
+}
+.datarow:hover{
+    background-color: #fff3e6;
+}
+.datarow.selected{
+    background-color: #ffdab3;
+}
+.datarow.selected:hover{
+    background-color: #ffce99;
+}
+.row>div{
+    display: table-cell;
+    border: 1px solid black;
+    cursor: default;
+    padding: 5px;
+    font-size: 1.5vh;
+    white-space: nowrap;
+}
+.row.title{
+    font-weight: bold;
+    top:0px;
+    background-color: #BBD9EE;
+    width: 100%;
+    z-index: 10;
+}
+th{
+    position:sticky;
+    top:0px;
+    background-color: inherit;
+}
+.title>.data{
+    padding:2px 30px 2px 10px;
+    background:#BBD9EE url(../images/sort_both.png) no-repeat right center;
+    cursor: pointer;
+}
+.title>.data.asc{
+    background:#BBD9EE url(../images/sort_asc.png) no-repeat right center;
+}
+.title>.data.desc{
+    background:#BBD9EE url(../images/sort_desc.png) no-repeat right center;
+}
+.data{
+    padding: 2px 0px;
+}
+.data.link{
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
+.table {
+    display: block;
+    overflow: scroll;
+    width: 100%;
+    /* height: 100%; */
+}
+
+.case-t2{
+    background-color: #D8D8AF;
+    color: #2f2fff;
+    font-weight: bold;
+}
+.red{
+    color: #CC0000;
+    font-weight: bold;
+}
+.green{
+    color:#00CC00;
+}
+.main-frame.form{
+    background-color: #FFF;
+}
+.header{
+    margin: 10px 25px;
+    color: black; font-size: 14px; font-weight: 4000; line-height: 22px;  
+    background-color: #BBD9EE;
+    text-align: center;
+    border:1px solid black;
+}
+.form>.field{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2px;
+    border-left:1px solid;
+    border-bottom:1px solid;
+}
+form.form{
+    margin: 2px;
+    background-color: #ffe6e6;
+    padding: 15px;
+}
+.fieldText{
+    padding: 2px 5px;
+    margin: 3px;
+    min-width: 120px;
+    width:35vw;
+    background-color: #FFF8DC ;
+}
+.fieldValue{
+    padding: 2px 5px;
+    min-width: 120px;
+    width:50vw;
+}
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
